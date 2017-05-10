@@ -63,7 +63,7 @@ def schedule():
   currentmin = currenttime.tm_min
   localtime = time.asctime( time.localtime(time.time()) )
   
-  timestamp = datetime.datetime.now().time() # Throw away the date information
+  timestamp = datetime.datetime.now().time()
 
   start = datetime.time(0, 1)
   end = datetime.time(6, 30)
