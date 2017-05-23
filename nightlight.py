@@ -34,6 +34,16 @@ def red():
   b = 0
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
+  
+def green():
+  x = randint(0, 7)
+  y = randint(0, 3)
+  r = 0
+  g = 255
+  b = 0
+  unicorn.set_pixel(x, y, r , g, b)
+  unicorn.show()  
+  
 def blank():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -50,6 +60,7 @@ def night():
   for i in range(45):
     blank()
     sleep(0.5)
+
 def morning():
   for i in range(30):
     white()
@@ -57,6 +68,7 @@ def morning():
   for i in range(45):
     blank()
     sleep(0.5)
+
 def schedule():
   currenttime = time.localtime() 
   currenthour = currenttime.tm_hour
@@ -66,17 +78,23 @@ def schedule():
   timestamp = datetime.datetime.now().time()
 
   start = datetime.time(0, 1)
-  end = datetime.time(6, 30)
+  end = datetime.time(6, 0)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
     night()    
 
-  start = datetime.time(6, 15)
-  end = datetime.time(8, 1)
+  start = datetime.time(6, 0)
+  end = datetime.time(6, 30)
   if(start <= timestamp <= end):
-    print("morning " + str(timestamp))
-    morning()
+    print("Green " + str(timestamp))
+    green()
 
+    start = datetime.time(6, 31)
+  end = datetime.time(8, 0)
+  if(start <= timestamp <= end):
+    print("Morning " + str(timestamp))
+    morning()
+    
   start = datetime.time(8, 1)
   end = datetime.time(18, 30)
   if(start <= timestamp <= end):
