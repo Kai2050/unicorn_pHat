@@ -102,6 +102,12 @@ def schedule():
     unicorn.show()    
 
   start = datetime.time(18, 30)
+  end = datetime.time(19, 30)
+  if(start <= timestamp <= end):
+    print("Green " + str(timestamp))
+    green()
+  
+  start = datetime.time(19, 31)
   end = datetime.time(23, 59)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
