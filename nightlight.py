@@ -17,7 +17,7 @@ def random():
   g = randint(1, 255)
   b = randint(1, 255)
   unicorn.set_pixel(x, y, r , g, b)
-  unicorn.show()  
+  unicorn.show()
 def white():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -34,7 +34,7 @@ def red():
   b = 0
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
-  
+
 def green():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -42,8 +42,8 @@ def green():
   g = 255
   b = 0
   unicorn.set_pixel(x, y, r , g, b)
-  unicorn.show()  
-  
+  unicorn.show()
+
 def blank():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -70,18 +70,18 @@ def morning():
     sleep(0.5)
 
 def schedule():
-  currenttime = time.localtime() 
+  currenttime = time.localtime()
   currenthour = currenttime.tm_hour
   currentmin = currenttime.tm_min
   localtime = time.asctime( time.localtime(time.time()) )
-  
+
   timestamp = datetime.datetime.now().time()
 
   start = datetime.time(0, 1)
   end = datetime.time(6, 0)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
-    night()    
+    night()
 
   start = datetime.time(6, 0)
   end = datetime.time(6, 30)
@@ -94,19 +94,19 @@ def schedule():
   if(start <= timestamp <= end):
     print("Morning " + str(timestamp))
     morning()
-    
+
   start = datetime.time(8, 1)
   end = datetime.time(18, 30)
   if(start <= timestamp <= end):
     unicorn.clear()
-    unicorn.show()    
+    unicorn.show()
 
-  start = datetime.time(18, 30)
+  start = datetime.time(18, 31)
   end = datetime.time(19, 30)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
     green()
-  
+
   start = datetime.time(19, 31)
   end = datetime.time(23, 59)
   if(start <= timestamp <= end):
