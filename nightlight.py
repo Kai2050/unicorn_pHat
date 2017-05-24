@@ -70,10 +70,10 @@ def morning():
     sleep(0.5)
     
 def warm_up():
-  for i in range
+  for i in range(30):
     green()
     sleep(1)
-  for i in range
+  for i in range(45):
     blank()
     sleep(0.5)
 
@@ -95,7 +95,7 @@ def schedule():
   end = datetime.time(6, 30)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
-    green()
+    warm_up()
 
     start = datetime.time(6, 31)
   end = datetime.time(8, 0)
