@@ -68,6 +68,14 @@ def morning():
   for i in range(45):
     blank()
     sleep(0.5)
+    
+def warm_up():
+  for i in range
+    green()
+    sleep(1)
+  for i in range
+    blank()
+    sleep(0.5)
 
 def schedule():
   currenttime = time.localtime()
@@ -105,7 +113,7 @@ def schedule():
   end = datetime.time(19, 30)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
-    green()
+    warm_up()
 
   start = datetime.time(19, 31)
   end = datetime.time(23, 59)
