@@ -34,7 +34,6 @@ def red():
   b = 0
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
-
 def green():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -68,7 +67,7 @@ def morning():
   for i in range(45):
     blank()
     sleep(0.5)
-    
+
 def warm_up():
   for i in range(30):
     green()
@@ -120,7 +119,6 @@ def schedule():
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
     night()
-  
 
 while True:
   schedule()
