@@ -118,7 +118,7 @@ def schedule():
   end = datetime.time(6, 0)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
-    night()
+    binary()
 
   start = datetime.time(6, 1)
   end = datetime.time(8, 0)
@@ -142,7 +142,7 @@ def schedule():
   end = datetime.time(23, 59)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
-    night()
+    binary()
 
 while True:
   schedule()
