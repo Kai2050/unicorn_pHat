@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#nightlight with binary
 
 import unicornhat as unicorn
 from random import randint
@@ -9,7 +10,7 @@ import time
 unicorn.set_layout(unicorn.PHAT)
 unicorn.brightness(0.3)
 
-
+#random patterns
 def random():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -18,6 +19,8 @@ def random():
   b = randint(1, 255)
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
+
+#white
 def white():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -26,6 +29,8 @@ def white():
   b = 200
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
+
+#red
 def red():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -34,6 +39,8 @@ def red():
   b = 0
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
+
+#green
 def green():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -43,6 +50,7 @@ def green():
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
 
+#blank
 def blank():
   x = randint(0, 7)
   y = randint(0, 3)
@@ -52,6 +60,7 @@ def blank():
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
 
+#night pattern: random colors then random blanking
 def night():
   for i in range(30):
     random()
@@ -60,6 +69,7 @@ def night():
     blank()
     sleep(0.5)
 
+#morning pattern: white then random blanking
 def morning():
   for i in range(30):
     white()
@@ -68,6 +78,7 @@ def morning():
     blank()
     sleep(0.5)
 
+#green then blanking
 def warm_up():
   for i in range(30):
     green()
@@ -76,6 +87,25 @@ def warm_up():
     blank()
     sleep(0.5)
 
+def binary():
+    while 1:
+      decimal = time.strftime("%H%M%S")
+      decimal_list = list(decimal)
+
+      for x in xrange(0, 6):
+        binary = bin(int(decimal_list[x]))[2:].rjust(4, '0')
+        binary_list = list(binary)
+
+        for y in xrange(0, 4):
+          if binary_list[y] == '1':
+            unicorn.set_pixel(x+1,y,255,255,255)
+          else:
+            unicorn.set_pixel(x+1,y,0,0,0)
+
+      unicorn.show()
+      time.sleep(1)
+
+#scheduler of what happens at what time
 def schedule():
   currenttime = time.localtime()
   currenthour = currenttime.tm_hour
@@ -90,31 +120,25 @@ def schedule():
     print("night " + str(timestamp))
     night()
 
-  start = datetime.time(6, 0)
-  end = datetime.time(6, 30)
+  start = datetime.time(6, 1)
+  end = datetime.time(8, 0)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
     warm_up()
 
-    start = datetime.time(6, 31)
-  end = datetime.time(8, 0)
-  if(start <= timestamp <= end):
-    print("Morning " + str(timestamp))
-    morning()
-
   start = datetime.time(8, 1)
-  end = datetime.time(18, 30)
+  end = datetime.time(18, 14)
   if(start <= timestamp <= end):
     unicorn.clear()
     unicorn.show()
 
-  start = datetime.time(18, 31)
-  end = datetime.time(19, 40)
+  start = datetime.time(18, 15)
+  end = datetime.time(19, 29)
   if(start <= timestamp <= end):
-    print("Green " + str(timestamp))
-    warm_up()
+    print("Binary " + str(timestamp))
+    binary()
 
-  start = datetime.time(19, 41)
+  start = datetime.time(19, 30)
   end = datetime.time(23, 59)
   if(start <= timestamp <= end):
     print("night " + str(timestamp))
