@@ -88,7 +88,7 @@ def warm_up():
     sleep(0.5)
 
 def binary():
-    while 1:
+    for i in range(60):
       decimal = time.strftime("%H%M%S")
       decimal_list = list(decimal)
 
