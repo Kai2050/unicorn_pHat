@@ -87,15 +87,7 @@ def warm_up():
     blank()
     sleep(0.5)
 
-#r = randint(1, 255)
-#g = randint(1, 255)
-#b = randint(1, 255)
-
 def binary():
-    r = randint(1, 255)
-    g = randint(1, 255)
-    b = randint(1, 255)
-    
     for i in range(60):
       decimal = time.strftime("%H%M%S")
       decimal_list = list(decimal)
@@ -106,7 +98,7 @@ def binary():
 
         for y in xrange(0, 4):
           if binary_list[y] == '1':
-            unicorn.set_pixel(x+1,y,r,g,b)
+            unicorn.set_pixel(x+1,y,255,255,255)
           else:
             unicorn.set_pixel(x+1,y,0,0,0)
 
@@ -137,7 +129,6 @@ def schedule():
   start = datetime.time(8, 1)
   end = datetime.time(18, 14)
   if(start <= timestamp <= end):
-    #binary()  
     unicorn.clear()
     unicorn.show()
 
