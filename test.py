@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from time import sleep
-import dafrom time import sleep
+import date 
 import datetime
 import time
 import unicornhat as unicorn
