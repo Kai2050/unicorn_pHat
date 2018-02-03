@@ -131,7 +131,7 @@ def schedule():
   start = datetime.time(6, 1)
   end = datetime.time(8, 0)
   if(start <= timestamp <= end):
-    print("Green " + str(timestamp))
+    print("Green blank" + str(timestamp))
     green_blank()
 
   start = datetime.time(8, 1)
@@ -144,7 +144,7 @@ def schedule():
   start = datetime.time(18, 15)
   end = datetime.time(19, 29)
   if(start <= timestamp <= end):
-    print("Green " + str(timestamp))
+    print("Green blank " + str(timestamp))
     green_blank()
 
   start = datetime.time(19, 30)
