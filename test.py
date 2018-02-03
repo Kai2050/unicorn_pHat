@@ -5,7 +5,7 @@ import date
 import datetime
 import time
 import unicornhat as unicorn
-from datetime import date
+from date import datetime
 
 def binary():
   
