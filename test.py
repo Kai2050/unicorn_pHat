@@ -2,9 +2,18 @@ from time import sleep
 import datetime
 import time
 
-timestamp = datetime.datetime.now().time()
-start = datetime.time(0, 1)
-end = datetime.time(6, 0)
+def tree():
+    while True:
+        timestamp = datetime.datetime.now().time()
+        print('hello world')
+        sleep(1)    
+        start = datetime.time(0, 1)
+        end = datetime.time(9, 0)
+        if(start <= timestamp <= end):
+            print("binary " + str(timestamp))
+            pass
 
-if(start <= timestamp <= end):
-print("binary " + str(timestamp))
+    print('put out of loop')
+
+while True:
+    tree()
