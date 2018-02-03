@@ -96,7 +96,7 @@ def binary():
     g = randint(1, 255)
     b = randint(1, 255)
 
-    While True:
+    while True:
       decimal = time.strftime("%H%M%S")
       decimal_list = list(decimal)
 
@@ -112,16 +112,7 @@ def binary():
 
       unicorn.show()
       time.sleep(1)
-
-     timestamp = datetime.datetime.now().time()
-     start = datetime.time(6, 0)
-     end = datetime.time(19, 30)
-
-     if(start <= timestamp <= end):
-         pass
-         print("pass " + str(timestamp)
-
-
+     
 #scheduler of what happens at what time
 def schedule():
   currenttime = time.localtime()
