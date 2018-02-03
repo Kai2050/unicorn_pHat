@@ -79,7 +79,7 @@ def morning():
     sleep(0.5)
 
 #green then blanking
-def warm_up():
+def green_blank():
   for i in range(30):
     green()
     sleep(1)
@@ -95,8 +95,8 @@ def binary():
     r = randint(1, 255)
     g = randint(1, 255)
     b = randint(1, 255)
-    
-    for i in range(60):
+
+    While True:
       decimal = time.strftime("%H%M%S")
       decimal_list = list(decimal)
 
@@ -132,12 +132,12 @@ def schedule():
   end = datetime.time(8, 0)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
-    warm_up()
+    green_blank()
 
   start = datetime.time(8, 1)
   end = datetime.time(18, 14)
   if(start <= timestamp <= end):
-    #binary()  
+    #binary()
     unicorn.clear()
     unicorn.show()
 
@@ -145,7 +145,7 @@ def schedule():
   end = datetime.time(19, 29)
   if(start <= timestamp <= end):
     print("Green " + str(timestamp))
-    warm_up()
+    green_blank()
 
   start = datetime.time(19, 30)
   end = datetime.time(23, 59)
