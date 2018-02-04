@@ -1,12 +1,44 @@
 #!/usr/bin/env python
 
-from time import sleep
 import datetime
 import time
 import unicornhat as unicorn
-from date import datetime
+from random import randint
+
+unicorn.set_layout(unicorn.PHAT)
+unicorn.brightness(0.3)
+
+def blank():
+  x = randint(0, 7)
+  y = randint(0, 3)
+  r = 0
+  g = 0
+  b = 0
+  unicorn.set_pixel(x, y, r , g, b)
+  unicorn.show()
+
+def green():
+  x = randint(0, 7)
+  y = randint(0, 3)
+  r = 0
+  g = 255
+  b = 0
+  unicorn.set_pixel(x, y, r , g, b)
+  unicorn.show()
+
+def green_blank():
+  for i in range(30):
+    green()
+    time.sleep(1)
+  for i in range(45):
+    blank()
+    time.sleep(0.5)  
 
 def binary():
+
+  r = randint(1, 255)
+  g = randint(1, 255)
+  b = randint(1, 255)
   
   decimal = time.strftime("%H%M%S")
   decimal_list = list(decimal)
@@ -20,20 +52,35 @@ def binary():
         unicorn.set_pixel(x+1,y,255,255,255)
       else:
         unicorn.set_pixel(x+1,y,0,0,0)
-
-def tree():
+    unicorn.show()
+    
+def schedule():
     timestamp = datetime.datetime.now().time()
-    start = datetime.time(0, 1)
-    end = datetime.time(12, 0)
-    print(str(timestamp))
+    #print(str(timestamp))
 
-    if start <= timestamp <= end:
-        print('hello Remi')
+    binary_start = datetime.time(19, 30)
+    binary_end = datetime.time(23, 59)
+    binary_start2 = datetime.time(0, 0)
+    binary_end2 = datetime.time(6, 0)
+    green_start = datetime.time(6, 0)
+    green_end = datetime.time(8, 0)
+    clear_start = datetime.time(8, 0)    
+    clear_end = datetime.time(19, 30)
+
+    if binary_start <= timestamp <= binary_end:
+        #print('binary')
         binary()
-    if timestamp >= end:
-        print('break loop')
-        
-
+    if binary_start2 <= timestamp <= binary_end2:
+        #print('binary')
+        binary()
+    if green_start <= timestamp <= green_end:
+        #print('green')
+        green_blank()
+    if clear_start <= timestamp <= clear_end:
+        #print('clear')
+        unicorn.clear()
+        unicorn.show()
+    
 while True:
-    tree()
-    sleep(1)
+    schedule()
+    time.sleep(1)
