@@ -56,6 +56,15 @@ def blue():
   unicorn.set_pixel(x, y, r , g, b)
   unicorn.show()
 
+ def orange():
+  x = randint(0, 7)
+  y = randint(0, 3)
+  r = 255
+  g = 165
+  b = 0
+  unicorn.set_pixel(x, y, r , g, b)
+  unicorn.show() 
+  
 def green_blank():
   for i in range(30):
     green()
@@ -71,7 +80,15 @@ def red_blank():
   for i in range(45):
     blank()
     time.sleep(0.5)
-
+    
+def orange_blank():
+  for i in range(30):
+    orange()
+    time.sleep(1)
+  for i in range(45):
+    blank()
+    time.sleep(0.5)
+    
 def random_blank():
   for i in range(30):
     random()
@@ -113,7 +130,9 @@ def schedule():
     binary_start2 = datetime.time(0, 0)
     binary_end2 = datetime.time(6, 0)
     random_start = datetime.time(6, 0)
-    random_end = datetime.time(7, 30)
+    random_end = datetime.time(6, 30)
+    random_orange_start = datetime.time(6, 30)
+    random_orange_end = datetime.time(7, 30)    
     clear_start = datetime.time(7, 30)    
     clear_end = datetime.time(19, 30)
     
@@ -129,6 +148,8 @@ def schedule():
     if random_start <= timestamp <= random_end:
         #print('green')
         random_blank()
+    if random_orange_start <= timestamp <= random_orange_end:
+        orange_blank()        
     if clear_start <= timestamp <= clear_end:
         #print('clear')
         unicorn.clear()
