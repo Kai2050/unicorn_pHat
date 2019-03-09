@@ -66,9 +66,43 @@ def orange():
     unicorn.set_pixel(x, y, r , g, b)
     unicorn.show()
 
+def yellow():
+    x = randint(0, 7)
+    y = randint(0, 3)
+    r = 255
+    g = 255
+    b = 0
+    unicorn.set_pixel(x, y, r , g, b)
+    unicorn.show()
+
+def purple():
+    x = randint(0, 7)
+    y = randint(0, 3)
+    r = 128
+    g = 0
+    b = 128
+    unicorn.set_pixel(x, y, r , g, b)
+    unicorn.show()
+
+def purple_blank():
+  for i in range(30):
+    purple()
+    time.sleep(1)
+  for i in range(45):
+    blank()
+    time.sleep(0.5)
+
 def green_blank():
   for i in range(30):
     green()
+    time.sleep(1)
+  for i in range(45):
+    blank()
+    time.sleep(0.5)
+
+def yellow_blank():
+  for i in range(30):
+    yellow()
     time.sleep(1)
   for i in range(45):
     blank()
@@ -109,7 +143,7 @@ def binary():
 
     for y in xrange(0, 4):
       if binary_list[y] == '1':
-        unicorn.set_pixel(x+1,y,0,0,255)
+        unicorn.set_pixel(x+1,y,255,255,0)
       else:
         unicorn.set_pixel(x+1,y,0,0,0)
 
@@ -136,7 +170,7 @@ def schedule():
 
 
     if red_start <= timestamp <= red_end:
-        red_blank()
+        purple_blank()
     if binary_start <= timestamp <= binary_end:
         #print('binary')
         binary()
@@ -147,7 +181,7 @@ def schedule():
         #print('green')
         random_blank()
     if random_end <= timestamp <= random_orange:
-        orange_blank()
+        green_blank()
     if clear_start <= timestamp <= clear_end:
         #print('clear')
         unicorn.clear()
